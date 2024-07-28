@@ -8,6 +8,12 @@ function App() {
   const handleAddNotes = (newNote) => {
     setNotes((preNotes) => [...preNotes, newNote]);
   };
+  
+  const handleDeleteNote = (id) => {
+    // const filterNotes = notes.filter((note) => note.id !== id);
+    // setNotes(filterNotes);
+    setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
+  };
 
   return (
     <>
@@ -19,7 +25,7 @@ function App() {
             </header>
             <main className="grid grid-cols-12 md:gap-6">
               <AddNewNote onAddNote={handleAddNotes} />
-              <NoteList notes={notes}/>
+              <NoteList notes={notes} onDelete={handleDeleteNote} />
             </main>
           </div>
         </div>

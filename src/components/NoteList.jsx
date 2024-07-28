@@ -1,8 +1,8 @@
-function NoteList({ notes }) {
+function NoteList({ notes, onDelete }) {
   return (
     <div className="col-span-12 md:col-span-8 lg:col-span-9 mt-6 md:mt-0 ">
       {notes.map((note) => (
-        <NoteItem key={note.id} note={note} />
+        <NoteItem key={note.id} note={note} onDelete={onDelete} />
       ))}
     </div>
   );
@@ -10,8 +10,7 @@ function NoteList({ notes }) {
 
 export default NoteList;
 
-function NoteItem({ note }) {
-
+function NoteItem({ note, onDelete }) {
   const options = {
     year: "numeric",
     month: "long",
@@ -27,12 +26,14 @@ function NoteItem({ note }) {
             <p className="text-sm text-neutral-300">{note.description}</p>
           </div>
           <div className="flex justify-center items-center gap-3">
-            <button>❌</button>
+            <button onClick={() => onDelete(note.id)}>❌</button>
             <input className="w-4 h-4" type="checkbox" name="" id="" />
           </div>
         </div>
         <div className="flex justify-center items-center border-t-2 p-2">
-          <p className="text-sm  text-neutral-300">{new Date().toLocaleDateString("en-US", options)}</p>
+          <p className="text-sm  text-neutral-300">
+            {new Date().toLocaleDateString("en-US", options)}
+          </p>
         </div>
       </div>
     </div>
