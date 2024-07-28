@@ -29,14 +29,14 @@ function AddNewNote({ onAddNote }) {
         <input
           onChange={(e) => setTitle(e.target.value)}
           value={title}
-          className="bg-neutral-600 p-2 rounded-lg text-sm"
+          className="bg-neutral-600 p-4 rounded-lg text-sm"
           type="text"
           placeholder="Note title"
         />
         <input
           onChange={(e) => setDescription(e.target.value)}
           value={description}
-          className="bg-neutral-600 p-2 rounded-lg text-sm"
+          className="bg-neutral-600 p-4 rounded-lg text-sm"
           type="text"
           placeholder="Note Description"
         />

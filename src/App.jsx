@@ -17,7 +17,7 @@ function App() {
             <header className="border-b-2 mb-7 py-5">
               <h1 className="text-center">note Header</h1>
             </header>
-            <main className="grid grid-cols-12 lg:gap-12">
+            <main className="grid grid-cols-12 md:gap-6">
               <AddNewNote onAddNote={handleAddNotes} />
               <NoteList notes={notes}/>
             </main>
