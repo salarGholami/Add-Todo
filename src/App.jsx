@@ -17,12 +17,12 @@ function App() {
 
   const handleCompleteNote = (e) => {
     const noteId = Number(e.target.value);
-   
+
     // const newNotes = notes.map((note) =>
     //   note.id === noteId ? { ...note, completed: !note.completed } : note
     // );
     // setNotes(newNotes);
-    
+
     setNotes((preNotes) =>
       preNotes.map((note) =>
         note.id === noteId ? { ...note, completed: !note.completed } : note

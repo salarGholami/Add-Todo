@@ -1,6 +1,10 @@
+import NoteStatus from "./NoteStatus";
+
 function NoteList({ notes, onDelete, onComplete }) {
+ 
   return (
     <div className="col-span-12 md:col-span-8 lg:col-span-9 mt-6 md:mt-0 ">
+      <NoteStatus notes={notes} />
       {notes.map((note) => (
         <NoteItem
           key={note.id}
@@ -24,7 +28,11 @@ function NoteItem({ note, onDelete, onComplete }) {
 
   return (
     <div className="flex flex-col p-3">
-      <div className="bg-neutral-500 rounded-lg">
+      <div
+        className={`bg-neutral-500 rounded-lg ${
+          note.completed ? "bg-neutral-600" : ""
+        }`}
+      >
         <div className="flex justify-between items-center p-3">
           <div
             className={`flex flex-col ${note.completed ? "opacity-50" : ""}`}
