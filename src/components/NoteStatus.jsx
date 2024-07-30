@@ -1,9 +1,19 @@
+import Message from "./Message";
+
 function NoteStatus({ notes }) {
   const allNotes = notes.length;
   const completedNotes = notes.filter((n) => n.completed).length;
   const uncompletedNotes = allNotes - completedNotes;
 
-  if (!allNotes) return <h2 className="text-center md:text-lg lg:text-2xl">No Notes has already been added !</h2>;
+  if (!allNotes)
+    return (
+      <Message>
+        <div className="flex justify-center items-center gap-2">
+          <span>ℹ️</span>
+          <p>No Notes has already been added !</p>
+        </div>
+      </Message>
+    );
 
   return (
     <ul className="flex justify-between items-center p-3">
